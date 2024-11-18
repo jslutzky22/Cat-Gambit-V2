@@ -5352,7 +5352,7 @@ Transform:
   m_GameObject: {fileID: 993208252}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 67.9, y: 10.9, z: -0.7772448}
+  m_LocalPosition: {x: 67.8, y: 11.7, z: -0.7772448}
   m_LocalScale: {x: 13.412417, y: 6.291394, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6439,7 +6439,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.655838, y: 12.662984}
+  m_Offset: {x: -2.2711258, y: 12.662984}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6450,7 +6450,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.311676, y: 26.325968}
+  m_Size: {x: 5.5422516, y: 26.325968}
   m_EdgeRadius: 0
 --- !u!1 &1237099193
 GameObject:
@@ -92579,6 +92579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2045103310}
   - component: {fileID: 2045103311}
+  - component: {fileID: 2045103312}
   m_Layer: 0
   m_Name: FlagIcon
   m_TagString: Untagged
@@ -92595,8 +92596,8 @@ Transform:
   m_GameObject: {fileID: 2045103309}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4100037, y: 5.34, z: 1.049814}
-  m_LocalScale: {x: 7.8894, y: 7.8894, z: 7.8894}
+  m_LocalPosition: {x: -4.18, y: 1.8012, z: 1.049814}
+  m_LocalScale: {x: 1.4669838, y: 1.4669838, z: 1.4669838}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1221576011}
@@ -92642,8 +92643,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3edc4b7c5a37d6744ba3bed9d491e0aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -1100440977, guid: 64a8cc7007cade947a2f3eab5e09dadc, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.8853049, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92653,6 +92654,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2045103312
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045103309}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f6c59f7f295a4664d986e7357e90b2d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2078416088
 GameObject:
   m_ObjectHideFlags: 0

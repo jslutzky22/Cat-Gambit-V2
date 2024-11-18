@@ -82,7 +82,7 @@ public class Summoner : EnemyHealth
         base.takeDamage(damage);
         m_Animator.SetTrigger("hurt");
         Instantiate(hurtParticle, gameObject.transform.position, Quaternion.identity);
-        CinemaMachineShake.Instance.ShakeCamera(10, .1f);
+        //CinemaMachineShake.Instance.ShakeCamera(10, .1f);
         if (health <= 0)
         {
             Die();
