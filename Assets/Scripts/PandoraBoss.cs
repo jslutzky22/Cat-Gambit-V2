@@ -271,7 +271,7 @@ public class PandoraBoss : EnemyHealth
         base.takeDamage(damage);
         StartCoroutine(gotHit());
         Instantiate(hurtParticle, gameObject.transform.position, Quaternion.identity);
-        CinemaMachineShake.Instance.ShakeCamera(10, .1f);
+        //CinemaMachineShake.Instance.ShakeCamera(10, .1f);
         //m_Animator.SetTrigger("hurt");
         if (health <= 0)
         {

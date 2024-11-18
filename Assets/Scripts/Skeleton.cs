@@ -168,7 +168,7 @@ public class Skeleton : EnemyHealth
         //agent.ResetPath();
         //ps.Play();
         m_Animator.SetTrigger("hurt");
-        CinemaMachineShake.Instance.ShakeCamera(10, .1f);
+        //CinemaMachineShake.Instance.ShakeCamera(10, .1f);
         Instantiate(hurtParticle, gameObject.transform.position, Quaternion.identity);
         StartCoroutine(hitStun());
         if (health <= 0)

@@ -193,7 +193,7 @@ public class SorrowBoss : EnemyHealth
     {
         base.takeDamage(damage);
         StartCoroutine(gotHit());
-        CinemaMachineShake.Instance.ShakeCamera(10, .1f);
+        //CinemaMachineShake.Instance.ShakeCamera(10, .1f);
         Instantiate(hurtParticle, gameObject.transform.position, Quaternion.identity);
         //m_Animator.SetTrigger("hurt");
         if (health <= 0)

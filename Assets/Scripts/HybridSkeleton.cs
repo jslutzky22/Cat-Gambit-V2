@@ -174,7 +174,14 @@ public class HybridSkeleton : EnemyHealth
         //agent.ResetPath();
         //m_Animator.SetTrigger("hurt");
         m_Animator.SetTrigger("hurt");
-        CinemaMachineShake.Instance.ShakeCamera(10, .1f);
+        /*if (damage > 1)
+        {
+            CinemaMachineShake.Instance.ShakeCamera(10, .1f);
+        }
+        else
+        {
+            CinemaMachineShake.Instance.ShakeCamera(5, .1f);
+        }*/
         Instantiate(hurtParticle, gameObject.transform.position, Quaternion.identity);
         StartCoroutine(hitStun());
         if (health <= 0)

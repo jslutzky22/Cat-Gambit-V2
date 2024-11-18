@@ -111,6 +111,7 @@ public class Player : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Image dragonBar;
     [SerializeField] private GameObject unleashedDragon;
     private bool bounced;
+    [SerializeField] private GameObject dragonParticle;
 
 
     // Start is called before the first frame update
@@ -416,14 +417,14 @@ public class Player : MonoBehaviour
                 StartCoroutine(knightCooldown());
                 //Debug.Log("Firing");
             }
-            if (context.started && horizontal == 1 && canThrow == true && canRWolf && arenaStart == false && tutorialValue >= 1)
+            if (context.started && horizontal == 1 && canThrow == true && canRWolf && arenaStart == false && tutorialValue >= 1 && vertical == 0)
             {
                 //Debug.Log("RightCard");
                 StartCoroutine(shooting());
                 StartCoroutine(rWolfCooldown());
                 //Debug.Log("Firing");
             }
-            if (context.started && horizontal == -1 && canThrow == true && canLWolf && arenaStart == false && tutorialValue >= 2)
+            if (context.started && horizontal == -1 && canThrow == true && canLWolf && arenaStart == false && tutorialValue >= 2 && vertical == 0)
             {
                 //Debug.Log("LeftCard");
                 StartCoroutine(shooting());
@@ -454,12 +455,12 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    if (isFacingRight == true && canThrow == true && canRWolf && arenaStart == false && tutorialValue >= 1)
+                    if (isFacingRight == true && canThrow == true && canRWolf && arenaStart == false && tutorialValue >= 1 && vertical == 0)
                     {
                         StartCoroutine(shooting());
                         StartCoroutine(rWolfCooldown());
                     }
-                    if (isFacingRight == false && canThrow == true && canLWolf && arenaStart == false && tutorialValue >= 1)
+                    if (isFacingRight == false && canThrow == true && canLWolf && arenaStart == false && tutorialValue >= 1 && vertical == 0)
                     {
                         StartCoroutine(shooting());
                         StartCoroutine(lWolfCooldown());
@@ -633,7 +634,10 @@ public class Player : MonoBehaviour
 
             yield return null;
         }
-
+        if (chargeAmount == 100)
+        {
+            Instantiate(dragonParticle, gameObject.transform.position, Quaternion.identity);
+        }
         //Debug.Log("Charging finished");
     }
     private IEnumerator Bouncing()
