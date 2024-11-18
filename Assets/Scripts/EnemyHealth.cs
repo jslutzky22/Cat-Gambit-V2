@@ -31,6 +31,14 @@ public class EnemyHealth : MonoBehaviour
     {
         health -= damage;
         FindObjectOfType<GameManager>().Stop(0.075f);
+        if (damage > 1.1)
+        {
+            CinemaMachineShake.Instance.ShakeCamera(20, .1f);
+        }
+        else
+        {
+            CinemaMachineShake.Instance.ShakeCamera(5, .1f);
+        }
     }
     public virtual void Die()
     {

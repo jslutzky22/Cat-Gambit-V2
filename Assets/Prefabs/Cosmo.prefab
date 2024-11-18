@@ -5355,6 +5355,7 @@ MonoBehaviour:
   spillNoise: {fileID: 0}
   dragonBar: {fileID: 0}
   unleashedDragon: {fileID: 0}
+  dragonParticle: {fileID: 8568828648171233494, guid: 52b86598fc0551e4d8e67033e36435c7, type: 3}
 --- !u!50 &154198997209184960
 Rigidbody2D:
   serializedVersion: 4
