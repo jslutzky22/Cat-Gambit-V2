@@ -4027,7 +4027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &758889171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7038,7 +7038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 5
   m_FrequencyGain: 5
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &1367641473
@@ -93199,11 +93199,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3593340846895751289, guid: c4832eb4f81f98c4798ad8e2c2757551, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.55
+      value: -2.94
       objectReference: {fileID: 0}
     - target: {fileID: 3593340846895751289, guid: c4832eb4f81f98c4798ad8e2c2757551, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.79
+      value: -7.98
       objectReference: {fileID: 0}
     - target: {fileID: 3593340846895751289, guid: c4832eb4f81f98c4798ad8e2c2757551, type: 3}
       propertyPath: m_LocalPosition.z
@@ -93253,6 +93253,10 @@ PrefabInstance:
       propertyPath: arenaWalls
       value: 
       objectReference: {fileID: 1002409270}
+    - target: {fileID: 3907488699170119507, guid: c4832eb4f81f98c4798ad8e2c2757551, type: 3}
+      propertyPath: victoryObject
+      value: 
+      objectReference: {fileID: 5064091138952960024, guid: 3e06a087c8377454ea9d3d677655ced6, type: 3}
     - target: {fileID: 3907488699170119507, guid: c4832eb4f81f98c4798ad8e2c2757551, type: 3}
       propertyPath: portals.Array.data[0]
       value: 
