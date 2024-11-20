@@ -14,12 +14,22 @@ public class Arena : MonoBehaviour
     private bool shouldSpawn = false;                      //indicate spawning should start
     [SerializeField] private GameObject arenaWalls;        //Arena walls object
     [SerializeField] private float portalDelay;            //Delay before activating portals
+    private GameObject player;
+    [SerializeField] private GameObject victoryObject;
     //[SerializeField] private float arenaStartDelay;
 
     private bool firstWaveComplete = false;                
     private bool secondWaveComplete = false;
     private bool thirdWaveComplete = false;
     private bool fought = false;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        
+
+    }
+
 
     void Update()
     {
@@ -35,9 +45,10 @@ public class Arena : MonoBehaviour
         }
         if (secondWaveComplete && !thirdWaveComplete && AllEnemiesDestroyed(wave3))
         {
-            Debug.Log("ThirdWaveComplete!");
+            /*Debug.Log("ThirdWaveComplete!");
             thirdWaveComplete = true;
-            arenaWalls.SetActive(false); 
+            arenaWalls.SetActive(false);*/
+            StartCoroutine(ArenaClosing());
         }
 
     }
@@ -66,6 +77,18 @@ public class Arena : MonoBehaviour
         //Do Opening Cuphead Intro
         yield return new WaitForSeconds(portalDelay - 0.5f);
         GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    private IEnumerator ArenaClosing()
+    {
+        thirdWaveComplete = true;
+        arenaWalls.SetActive(false);
+        Time.timeScale = 0.8f;
+        CinemaMachineShake.Instance.ShakeCamera(40, .1f);
+        Vector3 spawnPosition = player.transform.position + new Vector3(0, 2f, 0);
+        Instantiate(victoryObject, spawnPosition, Quaternion.identity);
+        yield return new WaitForSeconds(0.5f);
+        Time.timeScale = 1;
     }
 
 

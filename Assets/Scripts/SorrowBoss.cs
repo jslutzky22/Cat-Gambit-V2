@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 
 public class SorrowBoss : EnemyHealth
@@ -20,6 +21,7 @@ public class SorrowBoss : EnemyHealth
     [SerializeField] private AudioClip evilCardThrowNoise;
     [SerializeField] private AudioClip portalSummonNoise;
     [SerializeField] private GameObject hurtParticle;
+    [SerializeField] private GameObject victoryObject;
     //[SerializeField] private float delay;
 
     private GameObject player;
@@ -199,8 +201,14 @@ public class SorrowBoss : EnemyHealth
         if (health <= 0)
         {
             Die();
+            
         }
         //Play animation
+    }
+
+    private void spawnVictory()
+    {
+        Instantiate(victoryObject, transform.position, Quaternion.identity);
     }
     private IEnumerator gotHit()
     {
