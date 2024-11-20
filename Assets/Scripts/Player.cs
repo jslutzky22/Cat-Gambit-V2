@@ -112,6 +112,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject unleashedDragon;
     private bool bounced;
     [SerializeField] private GameObject dragonParticle;
+    [SerializeField] private GameObject cardHolders;
 
 
     // Start is called before the first frame update
@@ -123,6 +124,10 @@ public class Player : MonoBehaviour
             {
                 tutorialValue = 10;
             }
+        }
+        else
+        {
+            cardHolders.SetActive(false);
         }
         m_Animator = gameObject.GetComponent<Animator>();
         //SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -250,6 +255,25 @@ public class Player : MonoBehaviour
         {
             //StartCoroutine(takeDamage());
             tutorialValue += 1;
+            if (tutorialValue == 1)
+            {
+                //FADE IN TUTORIAL THING
+                cardHolders.SetActive(true);
+                upArrowRed.SetActive(false);
+                upMonsterReady.SetActive(false);
+                downArrowRed.SetActive(false);
+                downMonsterReady.SetActive(false);
+            }
+            if (tutorialValue == 2)
+            {
+                upArrowRed.SetActive(true);
+                upMonsterReady.SetActive(true);
+            }
+            if (tutorialValue== 3)
+            {
+                downArrowRed.SetActive(true);
+                downMonsterReady.SetActive(true);
+            }
         }
         //normalHurtbox
         if (collision.gameObject.tag == "Spike")
