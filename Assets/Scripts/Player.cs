@@ -113,6 +113,8 @@ public class Player : MonoBehaviour
     private bool bounced;
     [SerializeField] private GameObject dragonParticle;
     [SerializeField] private GameObject cardHolders;
+    [SerializeField] private GameObject greatlyWounded;
+    [SerializeField] private GameObject wounded;
 
 
     // Start is called before the first frame update
@@ -515,6 +517,8 @@ public class Player : MonoBehaviour
                     health2.SetActive(false);
                     health3.SetActive(true);
                     health4.SetActive(false);
+                    wounded.SetActive(false);
+                    greatlyWounded.SetActive(false);
                 }
                 if (health == 2)
                 {
@@ -522,6 +526,8 @@ public class Player : MonoBehaviour
                     health2.SetActive(true);
                     health3.SetActive(false);
                     health4.SetActive(false);
+                    wounded.SetActive(true);
+                    greatlyWounded.SetActive(false);
                 }
                 if (health >= 4)
                 {
@@ -764,6 +770,8 @@ public class Player : MonoBehaviour
             health2.SetActive(true);
             health3.SetActive(false);
             health4.SetActive(false);
+            greatlyWounded.SetActive(false);
+            wounded.SetActive(true);
         }
         if (health == 1)
         {
@@ -771,6 +779,8 @@ public class Player : MonoBehaviour
             health2.SetActive(false);
             health3.SetActive(false);
             health4.SetActive(false);
+            greatlyWounded.SetActive(true);
+            wounded.SetActive(false);
         }
         if (health <= 0)
         {

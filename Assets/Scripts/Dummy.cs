@@ -36,10 +36,17 @@ public class Dummy : EnemyHealth
         AudioSource.PlayClipAtPoint(dummyHitNoise, transform.position);
         if (health <= 0)
         {
+            m_Animator.SetBool("Dead", true);
             //EASTER EGG?
             //Die();
         }
         //Play animation
+    }
+
+    private void Revive()
+    {
+        health = 20;
+        m_Animator.SetBool("Dead", false);
     }
     private IEnumerator gotHit()
     {

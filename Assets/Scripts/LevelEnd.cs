@@ -8,6 +8,7 @@ public class LevelEnd : MonoBehaviour
     
     [SerializeField] private string sceneName;
     private GameManager gm;
+    [SerializeField] private GameObject levelTransition;
 
     private void Start()
     {
@@ -19,10 +20,19 @@ public class LevelEnd : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             gm.LastCheckPointPos = new Vector2(0, 0);
-            SceneManager.LoadScene(sceneName);
+            StartCoroutine(levelDelay());
+
+            
             //gm.LastCheckPointPos = new Vector2(0, 0);
 
         }
+    }
+
+    private IEnumerator levelDelay()
+    {
+        levelTransition.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(sceneName);
     }
 
 }
