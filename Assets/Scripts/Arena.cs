@@ -17,6 +17,7 @@ public class Arena : MonoBehaviour
     private GameObject player;
     [SerializeField] private GameObject victoryObject;
     //[SerializeField] private float arenaStartDelay;
+    [SerializeField] private AudioClip enemyPortalNoise;
 
     private bool firstWaveComplete = false;                
     private bool secondWaveComplete = false;
@@ -99,7 +100,8 @@ public class Arena : MonoBehaviour
         
         foreach (GameObject portal in wave1Portals)
         {
-            portal.SetActive(true);  
+            portal.SetActive(true);
+            AudioSource.PlayClipAtPoint(enemyPortalNoise, transform.position);
         }
 
         yield return new WaitForSeconds(portalDelay);
@@ -124,7 +126,8 @@ public class Arena : MonoBehaviour
         
         foreach (GameObject portal in wave2Portals)
         {
-            portal.SetActive(true); 
+            portal.SetActive(true);
+            AudioSource.PlayClipAtPoint(enemyPortalNoise, transform.position);
         }
 
         yield return new WaitForSeconds(portalDelay);  
@@ -146,7 +149,8 @@ public class Arena : MonoBehaviour
      
         foreach (GameObject portal in wave3Portals)
         {
-            portal.SetActive(true);  
+            portal.SetActive(true);
+            AudioSource.PlayClipAtPoint(enemyPortalNoise, transform.position);
         }
 
         yield return new WaitForSeconds(portalDelay);  

@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpointText: {fileID: 3960624341340924148}
+  checkpointNoise: {fileID: 8300000, guid: 8c9f8d38b99e0474c8243e368c9996dc, type: 3}
 --- !u!212 &2235296171397654743
 SpriteRenderer:
   m_ObjectHideFlags: 0

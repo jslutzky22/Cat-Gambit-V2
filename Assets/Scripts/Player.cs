@@ -104,10 +104,12 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip cardNoise1;
     [SerializeField] private AudioClip cardNoise2;
     [SerializeField] private AudioClip jumpNoise;
+    [SerializeField] private AudioClip DashNoise;
     [SerializeField] private AudioClip hurtNoise;
     [SerializeField] private AudioClip ratNoise;
     [SerializeField] private AudioClip webNoise;
     [SerializeField] private AudioClip spillNoise;
+    [SerializeField] private AudioClip chargedNoise;
     [SerializeField] private UnityEngine.UI.Image dragonBar;
     [SerializeField] private GameObject unleashedDragon;
     private bool bounced;
@@ -355,6 +357,7 @@ public class Player : MonoBehaviour
             {
    
                 StartCoroutine(Dash());
+                AudioSource.PlayClipAtPoint(DashNoise, transform.position);
             }
            
         }
@@ -667,6 +670,7 @@ public class Player : MonoBehaviour
         if (chargeAmount == 100)
         {
             Instantiate(dragonParticle, gameObject.transform.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(chargedNoise, transform.position);
         }
         //Debug.Log("Charging finished");
     }
