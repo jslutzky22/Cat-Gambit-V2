@@ -3,7 +3,12 @@ guid: c217c7c77dfc9b447a446348c07fd0b4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - arenaIntroText: {instanceID: 0}
+  - arenaFightText: {instanceID: 0}
+  - arenaWalls: {instanceID: 0}
+  - victoryObject: {instanceID: 0}
+  - enemyPortalNoise: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

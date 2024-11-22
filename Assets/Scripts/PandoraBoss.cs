@@ -27,6 +27,7 @@ public class PandoraBoss : EnemyHealth
     [SerializeField] private GameObject arenaWalls;
     [SerializeField] private AudioClip magicProjectileNoise;
     [SerializeField] private AudioClip magicSpellNoise;
+    [SerializeField] private AudioClip snakePortalNoise;
     [SerializeField] private GameObject hurtParticle;
     // Start is called before the first frame update
     void Start()
@@ -190,6 +191,8 @@ public class PandoraBoss : EnemyHealth
         // Activate the selected portals
         snakePortals[portalSpot1].SetActive(true);
         snakePortals[portalSpot2].SetActive(true);
+
+        AudioSource.PlayClipAtPoint(snakePortalNoise, transform.position);
 
         yield return new WaitForSeconds(1f);
 

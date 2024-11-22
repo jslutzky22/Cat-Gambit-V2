@@ -183,7 +183,9 @@ MonoBehaviour:
   arenaWalls: {fileID: 0}
   evilCardThrowNoise: {fileID: 8300000, guid: a8829353d938c054eb6c209844f09d50, type: 3}
   portalSummonNoise: {fileID: 8300000, guid: 867696bacfc04874f840d721e6013ae0, type: 3}
+  teleportNoise: {fileID: 8300000, guid: ca356cf81b31baf4e9a453b31bfc5fe9, type: 3}
   hurtParticle: {fileID: 5635198640929920312, guid: 6aa9f7cc5c59bca47bd4e00ee92692fd, type: 3}
+  victoryObject: {fileID: 0}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!95 &1414426014635346170
 Animator:

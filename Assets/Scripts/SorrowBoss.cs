@@ -20,6 +20,7 @@ public class SorrowBoss : EnemyHealth
     [SerializeField] private GameObject arenaWalls;
     [SerializeField] private AudioClip evilCardThrowNoise;
     [SerializeField] private AudioClip portalSummonNoise;
+    [SerializeField] private AudioClip teleportNoise;
     [SerializeField] private GameObject hurtParticle;
     [SerializeField] private GameObject victoryObject;
     //[SerializeField] private float delay;
@@ -150,7 +151,7 @@ public class SorrowBoss : EnemyHealth
         yield return new WaitForSeconds(1f);
         GameObject randomSpawn = spawnSpot1[Random.Range(0, spawnSpot1.Length)];
         m_Animator.SetTrigger("teleport");
-
+        AudioSource.PlayClipAtPoint(teleportNoise, transform.position);
 
         //canAttack = true;
 

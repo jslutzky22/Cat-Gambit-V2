@@ -7,6 +7,7 @@ public class Checkpoint : MonoBehaviour
     private GameManager gm;
     Animator m_Animator;
     [SerializeField] private GameObject checkpointText;
+    [SerializeField] private AudioClip checkpointNoise;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class Checkpoint : MonoBehaviour
             gm.LastCheckPointPos = transform.position;
             m_Animator.SetTrigger("checkpointHit");
             StartCoroutine(checkpointGot());
+            AudioSource.PlayClipAtPoint(checkpointNoise, transform.position);
         }
     }
 

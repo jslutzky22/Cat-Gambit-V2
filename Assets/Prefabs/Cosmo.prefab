@@ -5349,13 +5349,18 @@ MonoBehaviour:
   cardNoise1: {fileID: 8300000, guid: ea042f01f59eb0f4095543787c702cfd, type: 3}
   cardNoise2: {fileID: 8300000, guid: 2e9e667f0f7db43419c3d72b14970c76, type: 3}
   jumpNoise: {fileID: 8300000, guid: 7fb8d1a08b0633244a9af41cc322cb19, type: 3}
+  DashNoise: {fileID: 8300000, guid: 9e29420f1edb6fb44a29e76da967724a, type: 3}
   hurtNoise: {fileID: 8300000, guid: 51eb27e49cb32e64b802bfe305eb3473, type: 3}
-  ratNoise: {fileID: 8300000, guid: e492344c1bf159f42b8947bf27365fa6, type: 3}
+  ratNoise: {fileID: 8300000, guid: 5a0a09809f92d3a4bba1f8299eadba9c, type: 3}
   webNoise: {fileID: 8300000, guid: 89aa2c78631a95c479a19f2545168e74, type: 3}
-  spillNoise: {fileID: 0}
+  spillNoise: {fileID: 8300000, guid: 33c3c5ca9e0d60e439f86d4c18b340a7, type: 3}
+  chargedNoise: {fileID: 8300000, guid: 117269b7d14bac842b9cd6106e5fc3c6, type: 3}
   dragonBar: {fileID: 0}
   unleashedDragon: {fileID: 0}
   dragonParticle: {fileID: 8568828648171233494, guid: 52b86598fc0551e4d8e67033e36435c7, type: 3}
+  cardHolders: {fileID: 0}
+  greatlyWounded: {fileID: 0}
+  wounded: {fileID: 0}
 --- !u!50 &154198997209184960
 Rigidbody2D:
   serializedVersion: 4
