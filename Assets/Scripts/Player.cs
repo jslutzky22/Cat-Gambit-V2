@@ -117,6 +117,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject cardHolders;
     [SerializeField] private GameObject greatlyWounded;
     [SerializeField] private GameObject wounded;
+    private AudioSource sound;
 
     public bool PauseOn { get => pauseOn; set => pauseOn = value; }
     public bool Isdead { get => isdead; set => isdead = value; }
@@ -137,6 +138,7 @@ public class Player : MonoBehaviour
             cardHolders.SetActive(false);
         }
         m_Animator = gameObject.GetComponent<Animator>();
+        sound = gameObject.GetComponent<AudioSource>();
         //SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         maxSpeed = playerSpeed;
         maxJump = jumpForce;
@@ -365,7 +367,7 @@ public class Player : MonoBehaviour
             {
                 return;
             }
-            if (canDash == true && isdead != true && pauseOn == false)
+            if (canDash == true && isdead != true && pauseOn == false && gameObject.activeSelf == true)
             {
    
                 StartCoroutine(Dash());
@@ -433,7 +435,7 @@ public class Player : MonoBehaviour
     {
         if (pauseOn == false)
         {
-            if (context.started && vertical == 0 && horizontal == 0 && canNDragon && arenaStart == false && tutorialValue >= 4)
+            if (context.started && vertical == 0 && horizontal == 0 && canNDragon && arenaStart == false && tutorialValue >= 4 && gameObject.activeSelf == true)
             {
                 // Debug.Log("NeutralCard");
                 holdingCharge = true;
@@ -441,7 +443,7 @@ public class Player : MonoBehaviour
                 //holdingCharge = true;
                 //Debug.Log("Firing");
             }
-            if (context.started && vertical == 1 && canThrow == true && canUFairy && arenaStart == false && tutorialValue >= 2)
+            if (context.started && vertical == 1 && canThrow == true && canUFairy && arenaStart == false && tutorialValue >= 2 && gameObject.activeSelf == true)
             {
                 AudioSource.PlayClipAtPoint(cardNoise1, transform.position);
                 //Debug.Log("UpCard");
@@ -449,7 +451,7 @@ public class Player : MonoBehaviour
                 StartCoroutine(fairyCooldown());
                 //Debug.Log("Firing");
             }
-            if (context.started && vertical == -1 && canThrow == true && canDKnight && arenaStart == false && tutorialValue >= 3)
+            if (context.started && vertical == -1 && canThrow == true && canDKnight && arenaStart == false && tutorialValue >= 3 && gameObject.activeSelf == true)
             {
 
                 //Debug.Log("DownCard");
@@ -458,21 +460,21 @@ public class Player : MonoBehaviour
                 StartCoroutine(knightCooldown());
                 //Debug.Log("Firing");
             }
-            if (context.started && horizontal == 1 && canThrow == true && canRWolf && arenaStart == false && tutorialValue >= 1 && vertical == 0)
+            if (context.started && horizontal == 1 && canThrow == true && canRWolf && arenaStart == false && tutorialValue >= 1 && vertical == 0 && gameObject.activeSelf == true)
             {
                 //Debug.Log("RightCard");
                 StartCoroutine(shooting());
                 StartCoroutine(rWolfCooldown());
                 //Debug.Log("Firing");
             }
-            if (context.started && horizontal == -1 && canThrow == true && canLWolf && arenaStart == false && tutorialValue >= 2 && vertical == 0)
+            if (context.started && horizontal == -1 && canThrow == true && canLWolf && arenaStart == false && tutorialValue >= 2 && vertical == 0 && gameObject.activeSelf == true)
             {
                 //Debug.Log("LeftCard");
                 StartCoroutine(shooting());
                 StartCoroutine(lWolfCooldown());
                 //Debug.Log("Firing");
             }
-            if (context.canceled)
+            if (context.canceled && gameObject.activeSelf == true)
             {
                 //Debug.Log("released!!");
                 if (chargeAmount == 100)
@@ -496,12 +498,12 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    if (isFacingRight == true && canThrow == true && canRWolf && arenaStart == false && tutorialValue >= 1 && vertical == 0)
+                    if (isFacingRight == true && canThrow == true && canRWolf && arenaStart == false && tutorialValue >= 1 && vertical == 0 && gameObject.activeSelf == true)
                     {
                         StartCoroutine(shooting());
                         StartCoroutine(rWolfCooldown());
                     }
-                    if (isFacingRight == false && canThrow == true && canLWolf && arenaStart == false && tutorialValue >= 1 && vertical == 0)
+                    if (isFacingRight == false && canThrow == true && canLWolf && arenaStart == false && tutorialValue >= 1 && vertical == 0 && gameObject.activeSelf == true)
                     {
                         StartCoroutine(shooting());
                         StartCoroutine(lWolfCooldown());
@@ -766,6 +768,7 @@ public class Player : MonoBehaviour
         StartCoroutine(tookDamage());  // Start the coroutine properly
         health -= damage;  // Deduct health
         AudioSource.PlayClipAtPoint(hurtNoise, transform.position);
+        //AudioSource.PlayClipAtPoint(hurtNoise, transform.position);
         if (health >= 4)
         {
             health1.SetActive(false);
