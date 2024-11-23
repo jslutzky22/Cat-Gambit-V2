@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
+    [SerializeField] private AudioClip buttonNoise;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,11 @@ public class Buttons : MonoBehaviour
     {
         SceneManager.LoadScene("MenuScene");
         //Debug.Log("RetryClicked");
+    }
+    
+    public void buttonSound()
+    {
+        AudioSource.PlayClipAtPoint(buttonNoise, transform.position);
     }
 
     public void Quit()

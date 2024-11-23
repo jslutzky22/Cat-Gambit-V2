@@ -29,13 +29,13 @@ public class Portal : MonoBehaviour
             
         }
 
-        if (destination.TryGetComponent(out Portal destinationPortal) && portalReady == true && collision.gameObject.tag != "Enemy")
+        if (destination.TryGetComponent(out Portal destinationPortal) && portalReady == true && collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "EDamage" && collision.gameObject.tag != "Spike")
         {
             destinationPortal.portalObjects.Add(collision.gameObject);
             m_Animator.SetTrigger("portalUse");
         }
 
-        if (portalReady == true && collision.gameObject.tag != "Enemy")
+        if (portalReady == true && collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "EDamage" && collision.gameObject.tag != "Spike")
         {
             collision.transform.position = destination.position;
             m_Animator.SetTrigger("portalUse");

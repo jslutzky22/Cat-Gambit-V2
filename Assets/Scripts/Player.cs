@@ -118,6 +118,9 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject greatlyWounded;
     [SerializeField] private GameObject wounded;
 
+    public bool PauseOn { get => pauseOn; set => pauseOn = value; }
+    public bool Isdead { get => isdead; set => isdead = value; }
+
 
     // Start is called before the first frame update
     void Start()
