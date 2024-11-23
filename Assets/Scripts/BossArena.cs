@@ -45,7 +45,7 @@ public class BossArena : MonoBehaviour
         arenaIntroText.SetActive(false);
         arenaFightText.SetActive(true);
         GetComponent<BoxCollider2D>().enabled = false;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(2f);
         arenaFightText.SetActive(false);
     }
 }

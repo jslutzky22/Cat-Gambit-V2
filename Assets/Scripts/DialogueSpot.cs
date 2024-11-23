@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueSpot : MonoBehaviour
 {
-    [SerializeField] private AudioClip Dialogue;
+    //[SerializeField] private AudioClip Dialogue;
     private bool triggered;
     [SerializeField] private GameObject dialogueItems;
     // Start is called before the first frame update
@@ -18,11 +18,11 @@ public class DialogueSpot : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && triggered == false)
         {
-            AudioSource.PlayClipAtPoint(Dialogue, transform.position);
+            //AudioSource.PlayClipAtPoint(Dialogue, transform.position);
             triggered = true;
             GetComponent<BoxCollider2D>().enabled = false;
             if (dialogueItems != null)
@@ -30,5 +30,9 @@ public class DialogueSpot : MonoBehaviour
                 dialogueItems.SetActive(true);
             }
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+      
     }
 }

@@ -33,7 +33,7 @@ public class Dummy : EnemyHealth
         StartCoroutine(gotHit());
         m_Animator.SetTrigger("hurt");
         Instantiate(hurtParticle, gameObject.transform.position, Quaternion.identity);
-        AudioSource.PlayClipAtPoint(dummyHitNoise, transform.position);
+        AudioSource.PlayClipAtPoint(Compliment, transform.position);
         if (health <= 0)
         {
             m_Animator.SetBool("Dead", true);

@@ -117,7 +117,7 @@ public class Arena : MonoBehaviour
         {
             if (enemy != null) enemy.SetActive(true);  
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2.0f);
         arenaFightText.SetActive(false);
     }
    
