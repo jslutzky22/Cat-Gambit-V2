@@ -5348,8 +5348,8 @@ MonoBehaviour:
   dragon: {fileID: 1638810872797587311, guid: a31bc5ab3aa65fa4b8987fca6ee9cc00, type: 3}
   cardNoise1: {fileID: 8300000, guid: ea042f01f59eb0f4095543787c702cfd, type: 3}
   cardNoise2: {fileID: 8300000, guid: 2e9e667f0f7db43419c3d72b14970c76, type: 3}
-  jumpNoise: {fileID: 8300000, guid: 7fb8d1a08b0633244a9af41cc322cb19, type: 3}
-  DashNoise: {fileID: 8300000, guid: 9e29420f1edb6fb44a29e76da967724a, type: 3}
+  jumpNoise: {fileID: 8300000, guid: 15211e6875e1e98478a60a1f9c95ab14, type: 3}
+  DashNoise: {fileID: 8300000, guid: da421a67f5cb8784ba57c1db62d4f516, type: 3}
   hurtNoise: {fileID: 8300000, guid: 51eb27e49cb32e64b802bfe305eb3473, type: 3}
   ratNoise: {fileID: 8300000, guid: 5a0a09809f92d3a4bba1f8299eadba9c, type: 3}
   webNoise: {fileID: 8300000, guid: 89aa2c78631a95c479a19f2545168e74, type: 3}

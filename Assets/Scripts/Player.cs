@@ -285,9 +285,12 @@ public class Player : MonoBehaviour
         //normalHurtbox
         if (collision.gameObject.tag == "Spike")
         {
+            if (gameObject.layer != LayerMask.NameToLayer("Invincible"))
+            {
+                takeDamage(1);
+                AudioSource.PlayClipAtPoint(spillNoise, transform.position);
+            }
             //StartCoroutine(takeDamage());
-            takeDamage(1);
-            AudioSource.PlayClipAtPoint(spillNoise, transform.position);
         }
         if (collision.gameObject.tag == "Web")
         {
