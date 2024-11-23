@@ -258,6 +258,12 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Portal")
+        {
+            playerSpeed = 0;
+            gameObject.layer = LayerMask.NameToLayer("Invincible");
+        }
+
         if (collision.gameObject.tag == "Tutorial")
         {
             //StartCoroutine(takeDamage());

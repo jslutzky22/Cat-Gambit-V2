@@ -35,4 +35,9 @@ public class MoveObject : MonoBehaviour
         }
 
     }
+
+    private void OnDisable()
+    {
+        transform.position = startPosition;
+    }
 }

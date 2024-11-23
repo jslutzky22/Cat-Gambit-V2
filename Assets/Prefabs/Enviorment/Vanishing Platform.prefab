@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5647095837504024956}
   - component: {fileID: 213000871968777704}
   - component: {fileID: 2663059994689129287}
+  - component: {fileID: 8443904808238610782}
   m_Layer: 6
   m_Name: Vanishing Platform
   m_TagString: ground
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce86f9efbb0941049902e07d3cb0c383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box: {fileID: 2663059994689129287}
+  box: {fileID: 8443904808238610782}
   visual: {fileID: 5647095837504024956}
   vanishTime: 1
   reappearTime: 3
@@ -111,7 +112,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9144076319044491054}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -149,3 +150,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.497507, y: 2.1320422}
   m_EdgeRadius: 0
+--- !u!68 &8443904808238610782
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9144076319044491054}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.25, y: 0.84086996}
+  - {x: 1.2270702, y: 0.84087}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
