@@ -30,6 +30,7 @@ public class PandoraBoss : EnemyHealth
     [SerializeField] private AudioClip magicSpellNoise;
     [SerializeField] private AudioClip snakePortalNoise;
     [SerializeField] private GameObject hurtParticle;
+    private bool movedintoPlace;
     // Start is called before the first frame update
     void Start()
     {
@@ -305,15 +306,17 @@ public class PandoraBoss : EnemyHealth
 
     public void destroy()
     {
-        SceneManager.LoadScene("winScreen");
+        SceneManager.LoadScene("Cutscene2");
         Destroy(gameObject);
     }
     private void MoveToStartSpot()
     {
-        if (agent != null && startSpot != null)
+        if (agent != null && startSpot != null && canAttack != true && movedintoPlace == false)
         {
+            
             Vector3 targetPosition = new Vector3(startSpot.transform.position.x, startSpot.transform.position.y, transform.position.z);
             agent.SetDestination(targetPosition);
+            movedintoPlace = true;
         }
     }
 
