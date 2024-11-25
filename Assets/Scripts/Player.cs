@@ -379,7 +379,7 @@ public class Player : MonoBehaviour
     }
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed && coyoteTimeCounter > 0f && arenaStart == false && canJump == true && pauseOn == false)
+        if (context.performed && coyoteTimeCounter > 0f && arenaStart == false && canJump == true && pauseOn == false && isdead == false)
         {
             AudioSource.PlayClipAtPoint(jumpNoise, transform.position);
             
@@ -723,29 +723,34 @@ public class Player : MonoBehaviour
     }
     private IEnumerator tookDamage()
     {
+        if (Isdead == false)
+        {
+            playerSpeed = maxSpeed;
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+            gameObject.layer = LayerMask.NameToLayer("Invincible");
+
+            Color originalColor = spriteRenderer.color;
+
+            // Reduce health
+            //health --;
+
+
+            spriteRenderer.color = Color.red;
+
+            yield return new WaitForSeconds(0.5f);
+            hurtCanvas.SetActive(false);
+            // Wait for 1 second 
+            yield return new WaitForSeconds(1f);
+
+            // Return to the original color
+            spriteRenderer.color = Color.white;
+            yield return new WaitForSeconds(0.2f);
+
+            gameObject.layer = LayerMask.NameToLayer("Player");
+        }
         //Debug.Log("took Damage!");
-        playerSpeed = maxSpeed;
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        
-        gameObject.layer = LayerMask.NameToLayer("Invincible");
-
-        Color originalColor = spriteRenderer.color;
-
-        // Reduce health
-        //health --;
-
-        
-        spriteRenderer.color = Color.red;
-
-        yield return new WaitForSeconds(0.5f);
-        hurtCanvas.SetActive(false);
-        // Wait for 1 second 
-        yield return new WaitForSeconds(1f);
-
-        // Return to the original color
-        spriteRenderer.color = Color.white;
-        yield return new WaitForSeconds(0.2f);
-        gameObject.layer = LayerMask.NameToLayer("Player");
+       
     }
     public void takeDamage(int damage)
     {
@@ -764,9 +769,13 @@ public class Player : MonoBehaviour
             FindObjectOfType<GameManager>().Stop(0.5f);
             CinemaMachineShake.Instance.ShakeCamera(screenShakeAmount2Damage, .2f);
         }
-        
-        StartCoroutine(tookDamage());  // Start the coroutine properly
-        health -= damage;  // Deduct health
+        health -= damage;
+        if (health > 0)
+        {
+            StartCoroutine(tookDamage());
+        }
+        //StartCoroutine(tookDamage());  // Start the coroutine properly
+        //health -= damage;  // Deduct health
         AudioSource.PlayClipAtPoint(hurtNoise, transform.position);
         //AudioSource.PlayClipAtPoint(hurtNoise, transform.position);
         if (health >= 4)
