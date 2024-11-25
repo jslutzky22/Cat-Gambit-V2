@@ -18,8 +18,9 @@ public class Arena : MonoBehaviour
     [SerializeField] private GameObject victoryObject;
     //[SerializeField] private float arenaStartDelay;
     [SerializeField] private AudioClip enemyPortalNoise;
-
-    private bool firstWaveComplete = false;                
+    [SerializeField] private GameObject goRightArrow;
+    private bool firstWaveComplete = false;              
+    
     private bool secondWaveComplete = false;
     private bool thirdWaveComplete = false;
     private bool fought = false;
@@ -82,6 +83,7 @@ public class Arena : MonoBehaviour
 
     private IEnumerator ArenaClosing()
     {
+        goRightArrow.SetActive(true);
         thirdWaveComplete = true;
         arenaWalls.SetActive(false);
         Time.timeScale = 0.8f;

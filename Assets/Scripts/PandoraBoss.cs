@@ -8,6 +8,7 @@ public class PandoraBoss : EnemyHealth
 {
     NavMeshAgent agent;
     [SerializeField] private GameObject[] flySpots;
+    [SerializeField] private GameObject startSpot;
     private GameObject lastSpot;
     [SerializeField] private GameObject[] snakePortals;
     [SerializeField] private GameObject[] firePillars1;
@@ -29,6 +30,7 @@ public class PandoraBoss : EnemyHealth
     [SerializeField] private AudioClip magicSpellNoise;
     [SerializeField] private AudioClip snakePortalNoise;
     [SerializeField] private GameObject hurtParticle;
+    private bool movedintoPlace;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +64,12 @@ public class PandoraBoss : EnemyHealth
         Vector3 fixedPosition = transform.position;
         fixedPosition.z = 2;
         transform.position = fixedPosition;
+        if (!canAttack)
+        {
+            MoveToStartSpot();
+        }
+
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -298,7 +306,18 @@ public class PandoraBoss : EnemyHealth
 
     public void destroy()
     {
-        SceneManager.LoadScene("winScreen");
+        SceneManager.LoadScene("Cutscene2");
         Destroy(gameObject);
     }
+    private void MoveToStartSpot()
+    {
+        if (agent != null && startSpot != null && canAttack != true && movedintoPlace == false)
+        {
+            
+            Vector3 targetPosition = new Vector3(startSpot.transform.position.x, startSpot.transform.position.y, transform.position.z);
+            agent.SetDestination(targetPosition);
+            movedintoPlace = true;
+        }
+    }
+
 }

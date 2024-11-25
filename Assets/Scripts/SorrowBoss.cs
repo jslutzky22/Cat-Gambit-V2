@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
 
 public class SorrowBoss : EnemyHealth
@@ -23,6 +22,7 @@ public class SorrowBoss : EnemyHealth
     [SerializeField] private AudioClip teleportNoise;
     [SerializeField] private GameObject hurtParticle;
     [SerializeField] private GameObject victoryObject;
+    [SerializeField] private GameObject goRightArrow;
     //[SerializeField] private float delay;
 
     private GameObject player;
@@ -210,6 +210,7 @@ public class SorrowBoss : EnemyHealth
     private void spawnVictory()
     {
         Instantiate(victoryObject, transform.position, Quaternion.identity);
+        goRightArrow.SetActive(true);
     }
     private IEnumerator gotHit()
     {
