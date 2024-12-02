@@ -136,7 +136,7 @@ MonoBehaviour:
   maxHealth: 4
   enemyToSpawn: {fileID: 8023489988433800731, guid: e6d675ede399c2f4aa3bd0fe77fb15b7, type: 3}
   enemySpawnPos: {fileID: 5018194351082768421}
-  spawnDelay: 10
+  spawnDelay: 6
   timer: 0
   distanceToSummon: 20
   summonNoise: {fileID: 8300000, guid: 7d1e24f292ffad0479a08026db9b647a, type: 3}

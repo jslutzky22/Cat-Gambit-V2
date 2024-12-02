@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -19,6 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameMusic;
     [SerializeField] private GameObject deathMusic;
     [SerializeField] private GameObject pauseMusic;
+
+    //[SerializeField] private float volume;
+    //[SerializeField] private AudioMixer audioMixer;
     public Vector2 LastCheckPointPos { get => lastCheckPointPos; set => lastCheckPointPos = value; }
     public static GameManager Instance { get => instance; set => instance = value; }
 
@@ -37,8 +41,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        
        
+         //audioMixer.GetFloat("MasterVolume", out volume);
+       
+
         if (SceneManager.GetActiveScene().name == "MenuScene")
         {
             //audioSource.Stop();

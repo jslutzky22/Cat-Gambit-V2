@@ -32,14 +32,14 @@ public class VanishingPlatform : MonoBehaviour
     private void breakApart()
     {
         this.box.enabled = false;
-        this.visual.enabled = false;
+        //this.visual.enabled = false;
         AudioSource.PlayClipAtPoint(platformVanishNoise, transform.position);
     }
 
     private void assemble()
     {
         this.box.enabled = true;
-        this.visual.enabled = true;
+        //this.visual.enabled = true;
         m_Animator.SetTrigger("Idle");
     }
 
@@ -51,5 +51,13 @@ public class VanishingPlatform : MonoBehaviour
 
         yield return new WaitForSeconds(reappearTime);
         m_Animator.SetTrigger("Fixing");
+    }
+    private void EnableVisual()
+    {
+        this.visual.enabled = true;
+    }
+    private void disableVisual()
+    {
+        this.visual.enabled = false;
     }
 }

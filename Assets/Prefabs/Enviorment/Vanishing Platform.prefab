@@ -141,7 +141,7 @@ BoxCollider2D:
   m_Offset: {x: 0.00880909, y: -0.19430602}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.1}
     oldSize: {x: 2.5, y: 2.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -186,8 +186,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -1.25, y: 0.84086996}
-  - {x: 1.2270702, y: 0.84087}
+  - {x: -1.255448, y: 1.8520014}
+  - {x: 1.2652065, y: 1.8520014}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
