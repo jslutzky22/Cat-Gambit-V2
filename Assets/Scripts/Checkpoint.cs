@@ -8,6 +8,7 @@ public class Checkpoint : MonoBehaviour
     Animator m_Animator;
     [SerializeField] private GameObject checkpointText;
     [SerializeField] private AudioClip checkpointNoise;
+    private bool fired;
 
     void Start()
     {
@@ -16,8 +17,9 @@ public class Checkpoint : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && fired == false)
         {
+            fired = true;
             gm.LastCheckPointPos = transform.position;
             m_Animator.SetTrigger("checkpointHit");
             StartCoroutine(checkpointGot());

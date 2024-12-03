@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private GameObject altCamera;
     [SerializeField] private bool isTutorial;
     private int tutorialValue;
     private bool pauseOn;
@@ -54,6 +55,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject guardKnight;
     [SerializeField] private GameObject deathCanvas;
     [SerializeField] private GameObject dustParticles;
+    [SerializeField] private GameObject fullyChargedEffect;
     //[SerializeField] private ParticleSystem dust;
     //[SerializeField] private GameObject upArrowBlack;
     [SerializeField] private GameObject upArrowRed;
@@ -266,6 +268,11 @@ public class Player : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("Invincible");
         }
 
+        if (collision.gameObject.tag == "MainCamera")
+        {
+            altCamera.SetActive(true);
+        }
+
         if (collision.gameObject.tag == "Tutorial")
         {
             //StartCoroutine(takeDamage());
@@ -328,6 +335,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "MainCamera")
+        {
+            altCamera.SetActive(false);
+        }
         if (collision.gameObject.tag == "Arena")
         {
             rb.velocity = new Vector2(0, 0);
@@ -476,10 +487,12 @@ public class Player : MonoBehaviour
             }
             if (context.canceled && gameObject.activeSelf == true)
             {
+                fullyChargedEffect.SetActive(false);
                 //Debug.Log("released!!");
                 if (chargeAmount == 100)
                 {
                     AudioSource.PlayClipAtPoint(cardNoise2, transform.position);
+
                     //CardSpawner bullet = Instantiate(upCard, transform.position, quaternion.identity);
                     GameObject spawnedDragon = Instantiate(dragon, dragonSpawn.transform.position, Quaternion.identity);
                     {
@@ -610,6 +623,7 @@ public class Player : MonoBehaviour
         canNDragon = false;
         chargeAmount = 0;
         dragonBar.fillAmount = chargeAmount / 100f;
+        fullyChargedEffect.SetActive(false);
         yield return new WaitForSeconds(neutralDragonCooldown);
         unleashedDragon.SetActive(false);
         canNDragon = true;
@@ -684,6 +698,7 @@ public class Player : MonoBehaviour
         if (chargeAmount == 100)
         {
             Instantiate(dragonParticle, gameObject.transform.position, Quaternion.identity);
+            fullyChargedEffect.SetActive(true);
             AudioSource.PlayClipAtPoint(chargedNoise, transform.position);
         }
         //Debug.Log("Charging finished");

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SorrowBoss : EnemyHealth
 {
+    [SerializeField] private GameObject guitarRiff;
+    [SerializeField] private GameObject mainCam;
+    [SerializeField] private GameObject zoomCam;
+    [SerializeField] private GameObject portalCam;
     [SerializeField] private GameObject[] spawnSpot1;
     [SerializeField] private GameObject[] portals;
     [SerializeField] private GameObject[] enemiesToSpawn;
@@ -210,7 +214,28 @@ public class SorrowBoss : EnemyHealth
     private void spawnVictory()
     {
         Instantiate(victoryObject, transform.position, Quaternion.identity);
-        goRightArrow.SetActive(true);
+        //goRightArrow.SetActive(true);
+        StartCoroutine(lostBattle());
+    }
+    private IEnumerator lostBattle()
+    {
+        guitarRiff.SetActive(true);
+        arenaWalls.SetActive(false);
+        Time.timeScale = 0.8f;
+        zoomCam.SetActive(true);
+        //Vector3 spawnPosition = player.transform.position + new Vector3(0, 2f, 0);
+        //Instantiate(victoryObject, spawnPosition, Quaternion.identity);
+        CinemaMachineShake.Instance.ShakeCamera(40, .1f);
+        yield return new WaitForSeconds(1.5f);
+        zoomCam.SetActive(false);
+        spriteRenderer.color = originalColor;
+        
+        portalCam.SetActive(true);
+        Time.timeScale = 1;
+        yield return new WaitForSeconds(1.5f);
+        portalCam.SetActive(false);
+        zoomCam.SetActive(false);
+        mainCam.SetActive(true);
     }
     private IEnumerator gotHit()
     {

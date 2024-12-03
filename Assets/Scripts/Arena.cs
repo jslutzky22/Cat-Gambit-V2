@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class Arena : MonoBehaviour
 {
+    [SerializeField] private GameObject guitarRiff;
+    [SerializeField] private GameObject mainCam;
+    [SerializeField] private GameObject zoomCam;
+    [SerializeField] private GameObject portalCam;
     [SerializeField] private GameObject arenaIntroText;
     [SerializeField] private GameObject arenaFightText;
     [SerializeField] private GameObject[] wave1;           //Array of GameObjects for wave 1
@@ -83,15 +87,22 @@ public class Arena : MonoBehaviour
 
     private IEnumerator ArenaClosing()
     {
-        goRightArrow.SetActive(true);
+        //goRightArrow.SetActive(true);
+        guitarRiff.SetActive(true);
         thirdWaveComplete = true;
         arenaWalls.SetActive(false);
         Time.timeScale = 0.8f;
+        zoomCam.SetActive(true);
         CinemaMachineShake.Instance.ShakeCamera(40, .1f);
         Vector3 spawnPosition = player.transform.position + new Vector3(0, 2f, 0);
         Instantiate(victoryObject, spawnPosition, Quaternion.identity);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
+        portalCam.SetActive(true);
         Time.timeScale = 1;
+        yield return new WaitForSeconds(1.5f);
+        portalCam.SetActive(false);
+        zoomCam.SetActive(false);
+        mainCam.SetActive(true);
     }
 
 
