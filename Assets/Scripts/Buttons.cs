@@ -26,7 +26,7 @@ public class Buttons : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("RetryClicked");
+        //Debug.Log("RetryClicked");
     }
     public void GoMenu()
     {
