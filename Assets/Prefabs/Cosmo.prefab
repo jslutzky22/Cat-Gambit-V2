@@ -5396,6 +5396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89466bdbaa0d47144a3eed8e4a08b010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  altCamera: {fileID: 0}
   isTutorial: 0
   rb: {fileID: 154198997209184960}
   playerSpeed: 10
@@ -5412,7 +5413,7 @@ MonoBehaviour:
   healingRats: 3
   holdingCharge: 0
   chargeAmount: 0
-  chargeDuration: 2
+  chargeDuration: 1
   guardTime: 1
   pauseMenu: {fileID: 0}
   health1: {fileID: 0}

@@ -444,7 +444,7 @@ public class Player : MonoBehaviour
 
     public void Throw(InputAction.CallbackContext context)
     {
-        if (pauseOn == false)
+        if (pauseOn == false && isdead == false)
         {
             if (context.started && vertical == 0 && horizontal == 0 && canNDragon && arenaStart == false && tutorialValue >= 4 && gameObject.activeSelf == true)
             {
@@ -781,7 +781,7 @@ public class Player : MonoBehaviour
         if (damage >= 2)
         {
             //Debug.Log("ShakingScreenHard");
-            FindObjectOfType<GameManager>().Stop(0.5f);
+            FindObjectOfType<GameManager>().Stop(0.3f);
             CinemaMachineShake.Instance.ShakeCamera(screenShakeAmount2Damage, .2f);
         }
         health -= damage;
@@ -834,6 +834,8 @@ public class Player : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("Invincible");
             playerSpeed = 0;
             jumpForce = 0;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            //gameObject.SetActive(false);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);  // Reload the scene on death
         }
 
